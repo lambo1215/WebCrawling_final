@@ -1,0 +1,2584 @@
+2025-03-11 15:07:36 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 15:07:36 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 15:07:36 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 15:07:37 [scrapy.extensions.telnet] INFO: Telnet Password: 3dd34fc3a3f86703
+2025-03-11 15:07:37 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 15:07:37 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 15:07:37 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 15:07:37 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 15:07:37 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 15:07:37 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 15:07:37 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 15:07:37 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6024
+2025-03-11 15:07:37 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 15:07:37 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 15:07:37 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 15:07:46 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 15:07:46 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 15:08:22 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.kp.ru/online/>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1694, in _inlineCallbacks
+    cast(Failure, result).throwExceptionIntoGenerator, gen
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/python/failure.py", line 518, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1065, in adapt
+    extracted = result.result()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 311, in _download_request
+    result = await self._download_request_with_page(request, page, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 364, in _download_request_with_page
+    await self._apply_page_methods(page, request, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 422, in _apply_page_methods
+    pm.result = await _maybe_await(method(*pm.args, **pm.kwargs))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/_utils.py", line 16, in _maybe_await
+    return await obj
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 8302, in wait_for_selector
+    selector=selector, timeout=timeout, state=state, strict=strict
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py", line 352, in wait_for_selector
+    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_frame.py", line 322, in wait_for_selector
+    await self._channel.send("waitForSelector", locals_to_params(locals()))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.TimeoutError: Timeout 30000ms exceeded.
+=========================== logs ===========================
+waiting for locator("div.news-feed__item") to be visible
+============================================================
+2025-03-11 15:08:22 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 15:08:22 [root] INFO: MongoDB connection closed
+2025-03-11 15:08:22 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/playwright._impl._api_types.TimeoutError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 44.780101,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 12, 8, 22, 194544),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 17,
+ 'memusage/max': 69767168,
+ 'memusage/startup': 69767168,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 158,
+ 'playwright/request_count/method/GET': 103,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 54,
+ 'playwright/request_count/navigation': 1,
+ 'playwright/request_count/resource_type/document': 1,
+ 'playwright/request_count/resource_type/fetch': 22,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 44,
+ 'playwright/request_count/resource_type/ping': 13,
+ 'playwright/request_count/resource_type/script': 35,
+ 'playwright/request_count/resource_type/xhr': 38,
+ 'playwright/response_count': 157,
+ 'playwright/response_count/method/GET': 103,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 53,
+ 'playwright/response_count/resource_type/document': 1,
+ 'playwright/response_count/resource_type/fetch': 22,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 44,
+ 'playwright/response_count/resource_type/ping': 13,
+ 'playwright/response_count/resource_type/script': 35,
+ 'playwright/response_count/resource_type/xhr': 37,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 12, 7, 37, 414443)}
+2025-03-11 15:08:22 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 15:08:22 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 19:25:43 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 19:25:43 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 19:25:43 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 19:25:43 [scrapy.extensions.telnet] INFO: Telnet Password: 12392b458c84bec2
+2025-03-11 19:25:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 19:25:43 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 19:25:43 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 19:25:43 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 19:25:43 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 19:25:43 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 19:25:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 19:25:43 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 19:25:43 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 19:25:43 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 19:25:43 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 19:25:53 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 19:25:55 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 19:26:05 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.kp.ru/online/>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1694, in _inlineCallbacks
+    cast(Failure, result).throwExceptionIntoGenerator, gen
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/python/failure.py", line 518, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1065, in adapt
+    extracted = result.result()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 311, in _download_request
+    result = await self._download_request_with_page(request, page, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 364, in _download_request_with_page
+    await self._apply_page_methods(page, request, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 422, in _apply_page_methods
+    pm.result = await _maybe_await(method(*pm.args, **pm.kwargs))
+TypeError: wait_for_selector() takes 2 positional arguments but 3 were given
+2025-03-11 19:26:05 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 19:26:05 [root] INFO: MongoDB connection closed
+2025-03-11 19:26:05 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/builtins.TypeError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 21.867646,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 16, 26, 5, 842445),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 17,
+ 'memusage/max': 69742592,
+ 'memusage/startup': 69738496,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 141,
+ 'playwright/request_count/method/GET': 93,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 47,
+ 'playwright/request_count/navigation': 1,
+ 'playwright/request_count/resource_type/document': 1,
+ 'playwright/request_count/resource_type/fetch': 16,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 35,
+ 'playwright/request_count/resource_type/ping': 11,
+ 'playwright/request_count/resource_type/script': 32,
+ 'playwright/request_count/resource_type/xhr': 41,
+ 'playwright/response_count': 110,
+ 'playwright/response_count/method/GET': 76,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 33,
+ 'playwright/response_count/resource_type/document': 1,
+ 'playwright/response_count/resource_type/fetch': 16,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 25,
+ 'playwright/response_count/resource_type/ping': 9,
+ 'playwright/response_count/resource_type/script': 29,
+ 'playwright/response_count/resource_type/xhr': 25,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 16, 25, 43, 974799)}
+2025-03-11 19:26:05 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 19:26:05 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 21:08:11 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 21:08:11 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 21:08:11 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 21:08:11 [scrapy.extensions.telnet] INFO: Telnet Password: abbd43401ab8bbd5
+2025-03-11 21:08:11 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 21:08:11 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 21:08:11 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 21:08:11 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 21:08:11 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 21:08:12 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 21:08:12 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:08:12 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 21:08:12 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 21:08:12 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:08:12 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:08:24 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 21:08:24 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 21:09:12 [scrapy.extensions.logstats] INFO: Crawled 1 pages (at 1 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:09:12 [scrapy.extensions.memusage] INFO: Peak memory usage is 77MiB
+2025-03-11 21:09:30 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.kp.ru/online/>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1694, in _inlineCallbacks
+    cast(Failure, result).throwExceptionIntoGenerator, gen
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/python/failure.py", line 518, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1065, in adapt
+    extracted = result.result()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 311, in _download_request
+    result = await self._download_request_with_page(request, page, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 364, in _download_request_with_page
+    await self._apply_page_methods(page, request, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 422, in _apply_page_methods
+    pm.result = await _maybe_await(method(*pm.args, **pm.kwargs))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/_utils.py", line 16, in _maybe_await
+    return await obj
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 9348, in wait_for_load_state
+    await self._impl_obj.wait_for_load_state(state=state, timeout=timeout)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py", line 495, in wait_for_load_state
+    return await self._main_frame.wait_for_load_state(**locals_to_params(locals()))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_frame.py", line 242, in wait_for_load_state
+    return await self._wait_for_load_state_impl(state, timeout)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_frame.py", line 270, in _wait_for_load_state_impl
+    await wait_helper.result()
+playwright._impl._api_types.TimeoutError: Timeout 60000.0ms exceeded.
+2025-03-11 21:09:30 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 21:09:30 [root] INFO: MongoDB connection closed
+2025-03-11 21:09:30 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/playwright._impl._api_types.TimeoutError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 78.126036,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 18, 9, 30, 141618),
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 19,
+ 'memusage/max': 81420288,
+ 'memusage/startup': 69677056,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 186,
+ 'playwright/request_count/method/GET': 123,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 62,
+ 'playwright/request_count/navigation': 2,
+ 'playwright/request_count/resource_type/document': 2,
+ 'playwright/request_count/resource_type/fetch': 28,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 54,
+ 'playwright/request_count/resource_type/ping': 20,
+ 'playwright/request_count/resource_type/script': 37,
+ 'playwright/request_count/resource_type/xhr': 40,
+ 'playwright/response_count': 173,
+ 'playwright/response_count/method/GET': 123,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 49,
+ 'playwright/response_count/resource_type/document': 2,
+ 'playwright/response_count/resource_type/fetch': 28,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 54,
+ 'playwright/response_count/resource_type/ping': 18,
+ 'playwright/response_count/resource_type/script': 37,
+ 'playwright/response_count/resource_type/xhr': 29,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 18, 8, 12, 15582)}
+2025-03-11 21:09:30 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 21:09:30 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 21:19:34 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 21:19:34 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 21:19:34 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 21:19:34 [scrapy.extensions.telnet] INFO: Telnet Password: 4caf430be61ac3c3
+2025-03-11 21:19:34 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 21:19:35 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 21:19:35 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 21:19:35 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 21:19:35 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 21:19:35 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 21:19:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:19:35 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 21:19:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 21:19:35 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:19:35 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:19:45 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 21:19:45 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 21:19:54 [kp_news] ERROR: Request failed: wait_for_load_state() takes from 1 to 2 positional arguments but 3 were given
+2025-03-11 21:19:54 [kp_news] ERROR: Error handling failure: This event loop is already running
+2025-03-11 21:19:54 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 21:19:54 [root] INFO: MongoDB connection closed
+2025-03-11 21:19:54 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/builtins.TypeError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 18.724039,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 18, 19, 54, 280646),
+ 'log_count/ERROR': 2,
+ 'log_count/INFO': 17,
+ 'memusage/max': 69718016,
+ 'memusage/startup': 69718016,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 181,
+ 'playwright/request_count/method/GET': 121,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 59,
+ 'playwright/request_count/navigation': 2,
+ 'playwright/request_count/resource_type/document': 2,
+ 'playwright/request_count/resource_type/fetch': 22,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 56,
+ 'playwright/request_count/resource_type/ping': 20,
+ 'playwright/request_count/resource_type/script': 37,
+ 'playwright/request_count/resource_type/xhr': 39,
+ 'playwright/response_count': 172,
+ 'playwright/response_count/method/GET': 120,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 51,
+ 'playwright/response_count/resource_type/document': 2,
+ 'playwright/response_count/resource_type/fetch': 20,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 56,
+ 'playwright/response_count/resource_type/ping': 18,
+ 'playwright/response_count/resource_type/script': 37,
+ 'playwright/response_count/resource_type/xhr': 34,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 18, 19, 35, 556607)}
+2025-03-11 21:19:54 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 21:19:54 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 21:37:45 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 21:37:45 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 21:37:45 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 21:37:45 [scrapy.extensions.telnet] INFO: Telnet Password: 873c8642b05c30f0
+2025-03-11 21:37:45 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 21:37:45 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 21:37:45 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 21:37:45 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 21:37:45 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 21:37:45 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 21:37:45 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:37:45 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 21:37:45 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 21:37:45 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:37:45 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:37:53 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 21:37:54 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 21:38:02 [kp_news] ERROR: Request failed: wait_for_selector() takes 2 positional arguments but 3 were given
+2025-03-11 21:38:02 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/
+2025-03-11 21:38:02 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 21:38:02 [root] INFO: MongoDB connection closed
+2025-03-11 21:38:02 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/builtins.TypeError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 16.446645,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 18, 38, 2, 214843),
+ 'log_count/ERROR': 2,
+ 'log_count/INFO': 17,
+ 'memusage/max': 69771264,
+ 'memusage/startup': 69771264,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 172,
+ 'playwright/request_count/method/GET': 115,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 56,
+ 'playwright/request_count/navigation': 2,
+ 'playwright/request_count/resource_type/document': 2,
+ 'playwright/request_count/resource_type/fetch': 23,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 47,
+ 'playwright/request_count/resource_type/ping': 21,
+ 'playwright/request_count/resource_type/script': 37,
+ 'playwright/request_count/resource_type/xhr': 37,
+ 'playwright/response_count': 159,
+ 'playwright/response_count/method/GET': 115,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 43,
+ 'playwright/response_count/resource_type/document': 2,
+ 'playwright/response_count/resource_type/fetch': 23,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 47,
+ 'playwright/response_count/resource_type/ping': 19,
+ 'playwright/response_count/resource_type/script': 37,
+ 'playwright/response_count/resource_type/xhr': 26,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 18, 37, 45, 768198)}
+2025-03-11 21:38:02 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 21:38:02 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 21:46:26 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 21:46:26 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 21:46:26 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 21:46:26 [scrapy.extensions.telnet] INFO: Telnet Password: f77cb4890b0d45fa
+2025-03-11 21:46:26 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 21:46:27 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 21:46:27 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 21:46:27 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 21:46:27 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 21:46:27 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 21:46:27 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:46:27 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 21:46:27 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 21:46:27 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:46:27 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:46:36 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 21:46:36 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 21:47:27 [scrapy.extensions.logstats] INFO: Crawled 1 pages (at 1 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:47:27 [scrapy.extensions.memusage] INFO: Peak memory usage is 76MiB
+2025-03-11 21:47:44 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+waiting for locator("div.news-feed__item, article.news-feed__item, .news-list__item") to be visible
+============================================================
+2025-03-11 21:47:44 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/
+2025-03-11 21:47:44 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 21:47:44 [root] INFO: MongoDB connection closed
+2025-03-11 21:47:44 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/playwright._impl._api_types.TimeoutError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 77.364035,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 18, 47, 44, 840631),
+ 'log_count/ERROR': 2,
+ 'log_count/INFO': 19,
+ 'memusage/max': 80633856,
+ 'memusage/startup': 69722112,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 187,
+ 'playwright/request_count/method/GET': 122,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 64,
+ 'playwright/request_count/navigation': 2,
+ 'playwright/request_count/resource_type/document': 2,
+ 'playwright/request_count/resource_type/fetch': 29,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 51,
+ 'playwright/request_count/resource_type/ping': 25,
+ 'playwright/request_count/resource_type/script': 37,
+ 'playwright/request_count/resource_type/xhr': 38,
+ 'playwright/response_count': 181,
+ 'playwright/response_count/method/GET': 122,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 58,
+ 'playwright/response_count/resource_type/document': 2,
+ 'playwright/response_count/resource_type/fetch': 29,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 51,
+ 'playwright/response_count/resource_type/ping': 23,
+ 'playwright/response_count/resource_type/script': 37,
+ 'playwright/response_count/resource_type/xhr': 34,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 18, 46, 27, 476596)}
+2025-03-11 21:47:44 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 21:47:44 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 21:59:32 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 21:59:32 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 21:59:32 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 21:59:32 [scrapy.extensions.telnet] INFO: Telnet Password: c884035e2fef2482
+2025-03-11 21:59:33 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 21:59:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 21:59:34 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 21:59:35 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.PhotoDownloaderPipeline',
+ 'kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 21:59:35 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 21:59:35 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 21:59:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 21:59:35 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 21:59:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 21:59:35 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:59:35 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 21:59:43 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 21:59:44 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 21:59:53 [kp_news] WARNING: Found only 0 items with primary selectors. Trying secondary selectors.
+2025-03-11 21:59:53 [kp_news] INFO: Found 52 potential news items using combined strategy
+2025-03-11 22:00:06 [kp_news] INFO: Extracted article 1: В Калининграде из старых деталей собрали партию автомобилей BMW
+2025-03-11 22:00:06 [kp_news] INFO: Downloaded and encoded image from https://s14.stc.yc.kpcdn.net/share/i/12/14375556/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6273008-ttps-54-14-32173D-990-l-85-m-1.t-10-6273008-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-46-40.jpg
+2025-03-11 22:00:06 [root] INFO: Article saved to MongoDB: В Калининграде из старых деталей собрали партию автомобилей BMW
+2025-03-11 22:00:21 [kp_news] INFO: Extracted article 2: Белый дом считает, что переговоры США и Украины в Джидде были позитивными
+2025-03-11 22:00:21 [kp_news] INFO: Downloaded and encoded image from https://s09.stc.yc.kpcdn.net/share/i/12/14375554/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6273007-ttps-54-14-32173D-990-l-85-m-1.t-10-6273007-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-42-25.jpg
+2025-03-11 22:00:21 [root] INFO: Article saved to MongoDB: Белый дом считает, что переговоры США и Украины в Джидде были позитивными
+2025-03-11 22:00:34 [kp_news] INFO: Extracted article 3:  США передадут России предложения о прекращении огня на территории Украины
+2025-03-11 22:00:34 [kp_news] INFO: Downloaded and encoded image from https://s16.stc.yc.kpcdn.net/share/i/12/14375543/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6273000-ttps-54-14-32173D-990-l-85-m-1.t-10-6273000-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-30-11.jpg
+2025-03-11 22:00:34 [root] INFO: Article saved to MongoDB:  США передадут России предложения о прекращении огня на территории Украины
+2025-03-11 22:00:35 [scrapy.extensions.logstats] INFO: Crawled 6 pages (at 6 pages/min), scraped 3 items (at 3 items/min)
+2025-03-11 22:00:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 134MiB
+2025-03-11 22:00:37 [kp_news] INFO: Extracted article 4: США и Украина договорились заключить сделку по ресурсам как можно скорее
+2025-03-11 22:00:38 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375552/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272995-ttps-54-14-32173D-990-l-85-m-1.t-10-6272995-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-39-14.jpg
+2025-03-11 22:00:38 [root] INFO: Article saved to MongoDB: США и Украина договорились заключить сделку по ресурсам как можно скорее
+2025-03-11 22:00:53 [kp_news] INFO: Extracted article 5:  США немедленно возобновят военную и разведывательную помощь Украине
+2025-03-11 22:00:53 [kp_news] INFO: Downloaded and encoded image from https://s09.stc.yc.kpcdn.net/share/i/12/14375533/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272993-ttps-54-14-32173D-990-l-85-m-1.t-10-6272993-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-19-38.jpg
+2025-03-11 22:00:53 [root] INFO: Article saved to MongoDB:  США немедленно возобновят военную и разведывательную помощь Украине
+2025-03-11 22:01:21 [kp_news] INFO: Extracted article 6: Украина заявила о готовности принять идею США о 30-дневном прекращении огня
+2025-03-11 22:01:21 [kp_news] INFO: Downloaded and encoded image from https://s10.stc.yc.kpcdn.net/share/i/12/14375546/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272989-ttps-54-14-32173D-990-l-85-m-1.t-10-6272989-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-33-27.jpg
+2025-03-11 22:01:22 [root] INFO: Article saved to MongoDB: Украина заявила о готовности принять идею США о 30-дневном прекращении огня
+2025-03-11 22:01:35 [scrapy.extensions.logstats] INFO: Crawled 8 pages (at 2 pages/min), scraped 6 items (at 3 items/min)
+2025-03-11 22:01:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 153MiB
+2025-03-11 22:01:42 [kp_news] INFO: Extracted article 7: МИД России пообещал наказать тех, кто причастен к атаке дронов ВСУ на Москву
+2025-03-11 22:01:42 [root] INFO: Article saved to MongoDB: МИД России пообещал наказать тех, кто причастен к атаке дронов ВСУ на Москву
+2025-03-11 22:01:56 [kp_news] INFO: Extracted article 8: Дающие сыну Трампа шанс возглавить США поправки поддержало 40% республиканцев
+2025-03-11 22:01:57 [kp_news] INFO: Downloaded and encoded image from https://s09.stc.yc.kpcdn.net/share/i/12/14375516/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272984-ttps-54-14-32173D-990-l-85-m-1.t-10-6272984-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-03-06.jpg
+2025-03-11 22:01:57 [root] INFO: Article saved to MongoDB: Дающие сыну Трампа шанс возглавить США поправки поддержало 40% республиканцев
+2025-03-11 22:02:11 [kp_news] INFO: Extracted article 9:  Остановленные после атаки ВСУ поставки нефти в Венгрию возобновлены
+2025-03-11 22:02:11 [kp_news] INFO: Downloaded and encoded image from https://s16.stc.yc.kpcdn.net/share/i/12/14375440/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272930-ttps-54-14-32173D-990-l-85-m-1.t-10-6272930-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-35-34.jpg
+2025-03-11 22:02:11 [root] INFO: Article saved to MongoDB:  Остановленные после атаки ВСУ поставки нефти в Венгрию возобновлены
+2025-03-11 22:02:31 [kp_news] INFO: Extracted article 10: Владимир Путин поздравил 26-й полк химзащиты с присвоением звания «гвардейский»
+2025-03-11 22:02:31 [kp_news] INFO: Downloaded and encoded image from https://s14.stc.yc.kpcdn.net/share/i/12/14375443/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272932-ttps-54-14-32173D-990-l-85-m-1.t-10-6272932-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-35-40.jpg
+2025-03-11 22:02:31 [root] INFO: Article saved to MongoDB: Владимир Путин поздравил 26-й полк химзащиты с присвоением звания «гвардейский»
+2025-03-11 22:02:35 [scrapy.extensions.logstats] INFO: Crawled 12 pages (at 4 pages/min), scraped 10 items (at 4 items/min)
+2025-03-11 22:02:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 194MiB
+2025-03-11 22:03:01 [kp_news] INFO: Extracted article 11:  США и Украина сделают совместное заявление по итогам переговоров в Джадде
+2025-03-11 22:03:02 [kp_news] INFO: Downloaded and encoded image from https://s14.stc.yc.kpcdn.net/share/i/12/14375462/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272946-ttps-54-14-32173D-990-l-85-m-1.t-10-6272946-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-04-13.jpg
+2025-03-11 22:03:02 [root] INFO: Article saved to MongoDB:  США и Украина сделают совместное заявление по итогам переговоров в Джадде
+2025-03-11 22:03:11 [kp_news] INFO: Extracted article 12: На Солнце зафиксирована мощная вспышка предпоследнего класса M
+2025-03-11 22:03:12 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375448/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272937-ttps-54-14-32173D-990-l-85-m-1.t-10-6272937-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-04-47.jpg
+2025-03-11 22:03:12 [root] INFO: Article saved to MongoDB: На Солнце зафиксирована мощная вспышка предпоследнего класса M
+2025-03-11 22:03:24 [kp_news] INFO: Extracted article 13:  Атака украинских БПЛА на Москву демонстрирует агонию Зеленского
+2025-03-11 22:03:24 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375463/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272947-ttps-54-14-32173D-990-l-85-m-1.t-10-6272947-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-37-33.jpg
+2025-03-11 22:03:24 [root] INFO: Article saved to MongoDB:  Атака украинских БПЛА на Москву демонстрирует агонию Зеленского
+2025-03-11 22:03:35 [scrapy.extensions.logstats] INFO: Crawled 15 pages (at 3 pages/min), scraped 13 items (at 3 items/min)
+2025-03-11 22:03:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 228MiB
+2025-03-11 22:03:38 [kp_news] INFO: Extracted article 14:  ЕС получает от Украины сообщения о конструктивных переговорах с США
+2025-03-11 22:03:38 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375473/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272949-ttps-54-14-32173D-990-l-85-m-1.t-10-6272949-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-37-41.jpg
+2025-03-11 22:03:38 [root] INFO: Article saved to MongoDB:  ЕС получает от Украины сообщения о конструктивных переговорах с США
+2025-03-11 22:04:16 [kp_news] INFO: Extracted article 15: Представитель Госдепа Брюс заявила об оптимизме после переговоров с Киевом
+2025-03-11 22:04:17 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375475/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272955-ttps-54-14-32173D-990-l-85-m-1.t-10-6272955-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-37-46.jpg
+2025-03-11 22:04:17 [root] INFO: Article saved to MongoDB: Представитель Госдепа Брюс заявила об оптимизме после переговоров с Киевом
+2025-03-11 22:04:30 [kp_news] INFO: Extracted article 16: Компания Nokia сообщила о неудачной попытке совершить звонок с Луны
+2025-03-11 22:04:30 [kp_news] INFO: Downloaded and encoded image from https://s11.stc.yc.kpcdn.net/share/i/12/14375479/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272959-ttps-54-14-32173D-990-l-85-m-1.t-10-6272959-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-39-02.jpg
+2025-03-11 22:04:30 [root] INFO: Article saved to MongoDB: Компания Nokia сообщила о неудачной попытке совершить звонок с Луны
+2025-03-11 22:04:35 [scrapy.extensions.logstats] INFO: Crawled 18 pages (at 3 pages/min), scraped 16 items (at 3 items/min)
+2025-03-11 22:04:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 244MiB
+2025-03-11 22:04:52 [kp_news] INFO: Extracted article 17: В Госдуму вносят законопроект о запрете рекламы эзотерических услуг
+2025-03-11 22:04:53 [kp_news] INFO: Downloaded and encoded image from https://s12.stc.yc.kpcdn.net/share/i/12/14375486/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272964-ttps-54-14-32173D-990-l-85-m-1.t-10-6272964-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-04-56.jpg
+2025-03-11 22:04:53 [root] INFO: Article saved to MongoDB: В Госдуму вносят законопроект о запрете рекламы эзотерических услуг
+2025-03-11 22:05:15 [kp_news] INFO: Extracted article 18: МИД обвинил в атаках ВСУ на Россию поддерживающие Киев страны
+2025-03-11 22:05:16 [root] INFO: Article saved to MongoDB: МИД обвинил в атаках ВСУ на Россию поддерживающие Киев страны
+2025-03-11 22:05:31 [kp_news] INFO: Extracted article 19:  Венгрия выступит против включения Украины в ЕС из-за «Дружбы»
+2025-03-11 22:05:32 [kp_news] INFO: Downloaded and encoded image from https://s15.stc.yc.kpcdn.net/share/i/12/14375496/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272971-ttps-54-14-32173D-990-l-85-m-1.t-10-6272971-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-38-00.jpg
+2025-03-11 22:05:33 [root] INFO: Article saved to MongoDB:  Венгрия выступит против включения Украины в ЕС из-за «Дружбы»
+2025-03-11 22:05:35 [scrapy.extensions.logstats] INFO: Crawled 21 pages (at 3 pages/min), scraped 19 items (at 3 items/min)
+2025-03-11 22:05:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 278MiB
+2025-03-11 22:05:43 [kp_news] INFO: Extracted article 20:  даже если санкции отменят, доллар не будет стоить 65 рублей
+2025-03-11 22:05:43 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375500/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272974-ttps-54-14-32173D-990-l-85-m-1.t-10-6272974-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-39-23.jpg
+2025-03-11 22:05:43 [root] INFO: Article saved to MongoDB:  даже если санкции отменят, доллар не будет стоить 65 рублей
+2025-03-11 22:06:08 [kp_news] INFO: Extracted article 21:  мошенникам нужен паспорт и СНИЛС, чтобы оформить кредит
+2025-03-11 22:06:08 [kp_news] INFO: Downloaded and encoded image from https://s13.stc.yc.kpcdn.net/share/i/12/14375505/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272976-ttps-54-14-32173D-990-l-85-m-1.t-10-6272976-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-40-54.jpg
+2025-03-11 22:06:08 [root] INFO: Article saved to MongoDB:  мошенникам нужен паспорт и СНИЛС, чтобы оформить кредит
+2025-03-11 22:06:36 [scrapy.extensions.logstats] INFO: Crawled 24 pages (at 3 pages/min), scraped 21 items (at 2 items/min)
+2025-03-11 22:06:36 [scrapy.extensions.memusage] INFO: Peak memory usage is 294MiB
+2025-03-11 22:06:41 [kp_news] INFO: Extracted article 22:  Юрий Кара связал свой инфаркт с работой
+2025-03-11 22:06:42 [kp_news] INFO: Downloaded and encoded image from https://s09.stc.yc.kpcdn.net/share/i/12/14375504/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272975-ttps-54-14-32173D-990-l-85-m-1.t-10-6272975-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-39-43.jpg
+2025-03-11 22:06:43 [root] INFO: Article saved to MongoDB:  Юрий Кара связал свой инфаркт с работой
+2025-03-11 22:07:20 [kp_news] INFO: Extracted article 23:  продать квартиру дороже поможет ремонт-призрак
+2025-03-11 22:07:20 [kp_news] INFO: Downloaded and encoded image from https://s10.stc.yc.kpcdn.net/share/i/12/14375507/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272978-ttps-54-14-32173D-990-l-85-m-1.t-10-6272978-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-41-29.jpg
+2025-03-11 22:07:20 [root] INFO: Article saved to MongoDB:  продать квартиру дороже поможет ремонт-призрак
+2025-03-11 22:07:35 [scrapy.extensions.logstats] INFO: Crawled 25 pages (at 1 pages/min), scraped 23 items (at 2 items/min)
+2025-03-11 22:07:35 [scrapy.extensions.memusage] INFO: Peak memory usage is 309MiB
+2025-03-11 22:08:02 [kp_news] INFO: Extracted article 24:  Санкции США против российских танкеров начинают терять эффективность
+2025-03-11 22:08:02 [kp_news] INFO: Downloaded and encoded image from https://s16.stc.yc.kpcdn.net/share/i/12/14375506/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272977-ttps-54-14-32173D-990-l-85-m-1.t-10-6272977-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-41-37.jpg
+2025-03-11 22:08:03 [root] INFO: Article saved to MongoDB:  Санкции США против российских танкеров начинают терять эффективность
+2025-03-11 22:08:07 [kp_news] INFO: Extracted article 25:  врачи и учителя чаще сталкиваются с выгоранием
+2025-03-11 22:08:07 [kp_news] INFO: Downloaded and encoded image from https://s14.stc.yc.kpcdn.net/share/i/12/14375513/cr-1200-630.wm-nspru-100-tl-0-0.t-10-6272982-ttps-54-14-32173D-990-l-85-m-1.t-10-6272982-ttps-54-14-FFF-990-l-85-m-1.t-4-1475127-asb-42-10-FFF-788-l-210-b-60.m2025-03-11T21-41-59.jpg
+2025-03-11 22:08:07 [root] INFO: Article saved to MongoDB:  врачи и учителя чаще сталкиваются с выгоранием
+2025-03-11 22:08:08 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 22:08:08 [root] INFO: MongoDB connection closed
+2025-03-11 22:08:08 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 7465,
+ 'downloader/request_count': 27,
+ 'downloader/request_method_count/GET': 27,
+ 'downloader/response_bytes': 8738028,
+ 'downloader/response_count': 27,
+ 'downloader/response_status_count/200': 27,
+ 'dupefilter/filtered': 1,
+ 'elapsed_time_seconds': 512.521576,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 19, 8, 8, 306544),
+ 'item_scraped_count': 25,
+ 'log_count/INFO': 107,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 324542464,
+ 'memusage/startup': 69758976,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 26,
+ 'playwright/page_count/max_concurrent': 3,
+ 'playwright/request_count': 6435,
+ 'playwright/request_count/method/GET': 4603,
+ 'playwright/request_count/method/HEAD': 26,
+ 'playwright/request_count/method/POST': 1806,
+ 'playwright/request_count/navigation': 72,
+ 'playwright/request_count/resource_type/document': 72,
+ 'playwright/request_count/resource_type/fetch': 928,
+ 'playwright/request_count/resource_type/font': 433,
+ 'playwright/request_count/resource_type/image': 1459,
+ 'playwright/request_count/resource_type/media': 11,
+ 'playwright/request_count/resource_type/ping': 444,
+ 'playwright/request_count/resource_type/script': 1558,
+ 'playwright/request_count/resource_type/stylesheet': 68,
+ 'playwright/request_count/resource_type/xhr': 1462,
+ 'playwright/response_count': 5446,
+ 'playwright/response_count/method/GET': 4243,
+ 'playwright/response_count/method/HEAD': 26,
+ 'playwright/response_count/method/POST': 1177,
+ 'playwright/response_count/resource_type/document': 71,
+ 'playwright/response_count/resource_type/fetch': 835,
+ 'playwright/response_count/resource_type/font': 354,
+ 'playwright/response_count/resource_type/image': 1362,
+ 'playwright/response_count/resource_type/media': 8,
+ 'playwright/response_count/resource_type/ping': 425,
+ 'playwright/response_count/resource_type/script': 1497,
+ 'playwright/response_count/resource_type/stylesheet': 64,
+ 'playwright/response_count/resource_type/xhr': 830,
+ 'request_depth_max': 1,
+ 'response_received_count': 27,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 26,
+ 'scheduler/dequeued/memory': 26,
+ 'scheduler/enqueued': 26,
+ 'scheduler/enqueued/memory': 26,
+ 'start_time': datetime.datetime(2025, 3, 11, 18, 59, 35, 784968)}
+2025-03-11 22:08:08 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 22:08:08 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 22:27:55 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 22:27:55 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 22:27:55 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 22:27:55 [scrapy.extensions.telnet] INFO: Telnet Password: 7682031f0b56c284
+2025-03-11 22:27:55 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 22:27:55 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 22:27:55 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 22:27:55 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 22:27:55 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 22:27:55 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 22:27:55 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:27:55 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 22:27:55 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 22:27:55 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:27:55 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:28:06 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 22:28:06 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 22:28:17 [kp_news] WARNING: Found only 0 items with primary selectors. Trying secondary selectors.
+2025-03-11 22:28:17 [kp_news] INFO: Found 52 potential news items using combined strategy
+2025-03-11 22:28:25 [kp_news] INFO: Extracted article 1:  Трамп сообщил о встречах между США и Россия 11 и 12 марта
+2025-03-11 22:28:25 [root] INFO: Article saved to MongoDB:  Трамп сообщил о встречах между США и Россия 11 и 12 марта
+2025-03-11 22:28:31 [kp_news] INFO: Extracted article 2:  Трамп допустил, что вновь пригласит Зеленского на встречу в Белый дом
+2025-03-11 22:28:31 [root] INFO: Article saved to MongoDB:  Трамп допустил, что вновь пригласит Зеленского на встречу в Белый дом
+2025-03-11 22:28:52 [kp_news] INFO: Extracted article 3: Минюст США уволил сотрудницу после отказа выдать права на оружие Мелу Гибсону
+2025-03-11 22:28:52 [root] INFO: Article saved to MongoDB: Минюст США уволил сотрудницу после отказа выдать права на оружие Мелу Гибсону
+2025-03-11 22:28:55 [scrapy.extensions.logstats] INFO: Crawled 5 pages (at 5 pages/min), scraped 3 items (at 3 items/min)
+2025-03-11 22:28:55 [scrapy.extensions.memusage] INFO: Peak memory usage is 143MiB
+2025-03-11 22:29:03 [kp_news] INFO: Extracted article 4: США и Украина сформируют группы для обсуждения путей к устойчивому миру
+2025-03-11 22:29:03 [root] INFO: Article saved to MongoDB: США и Украина сформируют группы для обсуждения путей к устойчивому миру
+2025-03-11 22:29:08 [kp_news] INFO: Extracted article 5: В Калининграде из старых деталей собрали партию автомобилей BMW
+2025-03-11 22:29:08 [root] INFO: Article saved to MongoDB: В Калининграде из старых деталей собрали партию автомобилей BMW
+2025-03-11 22:29:11 [kp_news] INFO: Extracted article 6: Белый дом считает, что переговоры США и Украины в Джидде были позитивными
+2025-03-11 22:29:11 [root] INFO: Article saved to MongoDB: Белый дом считает, что переговоры США и Украины в Джидде были позитивными
+2025-03-11 22:29:14 [kp_news] INFO: Extracted article 7:  США передадут России предложения о прекращении огня на территории Украины
+2025-03-11 22:29:14 [root] INFO: Article saved to MongoDB:  США передадут России предложения о прекращении огня на территории Украины
+2025-03-11 22:29:55 [scrapy.extensions.logstats] INFO: Crawled 9 pages (at 4 pages/min), scraped 7 items (at 4 items/min)
+2025-03-11 22:29:55 [scrapy.extensions.memusage] INFO: Peak memory usage is 180MiB
+2025-03-11 22:29:58 [kp_news] INFO: Extracted article 8:  Атака украинских БПЛА на Москву демонстрирует агонию Зеленского
+2025-03-11 22:29:58 [root] INFO: Article saved to MongoDB:  Атака украинских БПЛА на Москву демонстрирует агонию Зеленского
+2025-03-11 22:29:58 [kp_news] INFO: Extracted article 9: США и Украина договорились заключить сделку по ресурсам как можно скорее
+2025-03-11 22:29:59 [root] INFO: Article saved to MongoDB: США и Украина договорились заключить сделку по ресурсам как можно скорее
+2025-03-11 22:30:19 [kp_news] INFO: Extracted article 10:  ЕС получает от Украины сообщения о конструктивных переговорах с США
+2025-03-11 22:30:19 [root] INFO: Article saved to MongoDB:  ЕС получает от Украины сообщения о конструктивных переговорах с США
+2025-03-11 22:30:55 [kp_news] INFO: Extracted article 11: Представитель Госдепа Брюс заявила об оптимизме после переговоров с Киевом
+2025-03-11 22:30:55 [root] INFO: Article saved to MongoDB: Представитель Госдепа Брюс заявила об оптимизме после переговоров с Киевом
+2025-03-11 22:30:55 [scrapy.extensions.logstats] INFO: Crawled 13 pages (at 4 pages/min), scraped 11 items (at 4 items/min)
+2025-03-11 22:30:55 [scrapy.extensions.memusage] INFO: Peak memory usage is 210MiB
+2025-03-11 22:31:12 [kp_news] INFO: Extracted article 12: Компания Nokia сообщила о неудачной попытке совершить звонок с Луны
+2025-03-11 22:31:12 [root] INFO: Article saved to MongoDB: Компания Nokia сообщила о неудачной попытке совершить звонок с Луны
+2025-03-11 22:31:22 [kp_news] INFO: Extracted article 13: В Госдуму вносят законопроект о запрете рекламы эзотерических услуг
+2025-03-11 22:31:22 [root] INFO: Article saved to MongoDB: В Госдуму вносят законопроект о запрете рекламы эзотерических услуг
+2025-03-11 22:31:32 [kp_news] INFO: Extracted article 14: МИД обвинил в атаках ВСУ на Россию поддерживающие Киев страны
+2025-03-11 22:31:32 [root] INFO: Article saved to MongoDB: МИД обвинил в атаках ВСУ на Россию поддерживающие Киев страны
+2025-03-11 22:31:41 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:31:42 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-03-11 22:31:42 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:31:42 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:31:42 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:31:42 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:31:42 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:31:42 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:31:42 [kp_news] ERROR: Request failed: Navigation failed because page was closed!
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6272974/", waiting until "load"
+============================================================
+2025-03-11 22:31:42 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6272974/
+2025-03-11 22:31:42 [kp_news] ERROR: Request failed: Connection closed while reading from the driver
+2025-03-11 22:31:42 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6272971/
+2025-03-11 22:31:43 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2025-03-11 22:31:55 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:32:07 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:32:12 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:40:11 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 22:40:11 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 22:40:11 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 22:40:11 [scrapy.extensions.telnet] INFO: Telnet Password: 8d6133f8b75f94e7
+2025-03-11 22:40:11 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 22:40:11 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 22:40:12 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 22:40:12 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 22:40:12 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 22:40:12 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 22:40:12 [root] INFO: Collection already has 29 documents
+2025-03-11 22:40:12 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:40:12 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 22:40:12 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 22:40:12 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:40:12 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:40:23 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 22:40:24 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 22:40:35 [kp_news] WARNING: Found only 0 items with primary selectors. Trying secondary selectors.
+2025-03-11 22:40:35 [kp_news] INFO: Found 52 potential news items using combined strategy
+2025-03-11 22:40:45 [kp_news] INFO: Extracted article 1: В ООН осудили массовую атаку ВСУ против гражданского населения России
+2025-03-11 22:40:45 [root] INFO: Stored article 30/1500
+2025-03-11 22:40:48 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:40:48 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 677, in _log_response
+    referrer = await response.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 530, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 525, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 533, in _actual_headers
+    headers = cast(HeadersArray, await self._channel.send("rawResponseHeaders"))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:48 [asyncio] ERROR: Exception in callback AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65
+handle: <Handle AsyncIOEventEmitter._emit_run.<locals>.callback(<Task finishe...been closed')>) at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/asyncio/events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py", line 71, in callback
+    self.emit("error", exc)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 179, in emit
+    self._emit_handle_potential_error(event, args[0] if args else None)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/pyee/base.py", line 139, in _emit_handle_potential_error
+    raise error
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 656, in _log_request
+    referrer = await request.header_value("referer")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 381, in header_value
+    return mapping.from_maybe_impl(await self._impl_obj.header_value(name=name))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 234, in header_value
+    return (await self._actual_headers()).get(name)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_network.py", line 242, in _actual_headers
+    headers = await self._channel.send("rawRequestHeaders")
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.Error: Target page, context or browser has been closed
+2025-03-11 22:40:49 [kp_news] ERROR: Request failed: Navigation failed because page was closed!
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273031/", waiting until "load"
+============================================================
+2025-03-11 22:40:49 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273031/
+2025-03-11 22:40:54 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed4d2390>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed4d2750>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed4da750>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed4e1b10>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed4e8ed0>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed4dab10>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed4e1ed0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed4f12d0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed4fb1d0>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed502610>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed5079d0>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed4fb610>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed5029d0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed507d90>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed511d90>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed524090>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed52c4d0>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed51d190>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed5244d0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed52c890>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed534810>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed3e7c90>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed5437d0>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed54bb10>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed534bd0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed53b9d0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed543b90>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed54bed0>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<ScrapyPlaywrightDownloadHandler._make_request_handler.<locals>._request_handler() running at /Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py:514> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x7febed557d10>()]> cb=[gather.<locals>._done_callback() at /Applications/anaconda3/lib/python3.7/asyncio/tasks.py:691]>
+2025-03-11 22:40:54 [asyncio] ERROR: Task was destroyed but it is pending!
+task: <Task pending coro=<Page._on_route() running at /Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py:249> wait_for=<_GatheringFuture pending cb=[<TaskWakeupMethWrapper object at 0x7febed560110>()]> cb=[AsyncIOEventEmitter._emit_run.<locals>.callback() at /Applications/anaconda3/lib/python3.7/site-packages/pyee/asyncio.py:65]>
+2025-03-11 22:40:58 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 22:40:58 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 22:40:58 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 22:40:58 [scrapy.extensions.telnet] INFO: Telnet Password: 258e932f2350bd94
+2025-03-11 22:40:59 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 22:40:59 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 22:40:59 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 22:40:59 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 22:40:59 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 22:40:59 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 22:40:59 [root] INFO: Collection already has 30 documents
+2025-03-11 22:40:59 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:40:59 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 22:40:59 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 22:40:59 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:40:59 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:41:07 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 22:41:08 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 22:41:14 [kp_news] INFO: Found 52 potential news items
+2025-03-11 22:41:14 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:41:14 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-03-11 22:41:15 [kp_news] ERROR: Request failed: Navigation failed because page was closed!
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273034/", waiting until "load"
+============================================================
+2025-03-11 22:41:15 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273034/
+2025-03-11 22:41:15 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2025-03-11 22:41:19 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 22:41:19 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 22:41:19 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 22:41:19 [scrapy.extensions.telnet] INFO: Telnet Password: 69270dd1dd3eeb01
+2025-03-11 22:41:19 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 22:41:19 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 22:41:19 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 22:41:20 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 22:41:20 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 22:41:20 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 22:41:20 [root] INFO: Collection already has 30 documents
+2025-03-11 22:41:20 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:41:20 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 22:41:20 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 22:41:20 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:41:20 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:41:30 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 22:41:31 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 22:41:36 [kp_news] INFO: Found 52 potential news items
+2025-03-11 22:41:42 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:41:42 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-03-11 22:41:42 [kp_news] ERROR: Request failed: net::ERR_ABORTED; maybe frame was detached?
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273031/", waiting until "load"
+============================================================
+2025-03-11 22:41:42 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273031/
+2025-03-11 22:41:42 [kp_news] ERROR: Request failed: Navigation failed because page was closed!
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273034/", waiting until "load"
+============================================================
+2025-03-11 22:41:42 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273034/
+2025-03-11 22:41:43 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2025-03-11 22:41:47 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 22:41:48 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 22:41:48 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 22:41:48 [scrapy.extensions.telnet] INFO: Telnet Password: fad1698394ea8baa
+2025-03-11 22:41:48 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 22:41:48 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 22:41:48 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 22:41:48 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 22:41:48 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 22:41:48 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 22:41:48 [root] INFO: Collection already has 30 documents
+2025-03-11 22:41:48 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:41:48 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 22:41:48 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 22:41:48 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:41:48 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:41:56 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 22:41:57 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 22:42:01 [kp_news] INFO: Found 52 potential news items
+2025-03-11 22:42:27 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:27 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273034/
+2025-03-11 22:42:31 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:31 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273031/
+2025-03-11 22:42:43 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:43 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273022/
+2025-03-11 22:42:45 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:45 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273016/
+2025-03-11 22:42:48 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 2 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:42:48 [scrapy.extensions.memusage] INFO: Peak memory usage is 156MiB
+2025-03-11 22:42:55 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:55 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273008/
+2025-03-11 22:42:56 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:56 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273007/
+2025-03-11 22:42:57 [kp_news] ERROR: Request failed: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for locator("article, .article, .content")
+============================================================
+2025-03-11 22:42:57 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273000/
+2025-03-11 22:43:09 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273028/", waiting until "load"
+============================================================
+2025-03-11 22:43:09 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273028/
+2025-03-11 22:43:48 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:43:48 [scrapy.extensions.memusage] INFO: Peak memory usage is 158MiB
+2025-03-11 22:44:48 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:44:48 [scrapy.extensions.memusage] INFO: Peak memory usage is 158MiB
+2025-03-11 22:45:24 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 22:45:24 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-03-11 22:45:24 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2025-03-11 22:49:49 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 22:49:49 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 22:49:49 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 22:49:49 [scrapy.extensions.telnet] INFO: Telnet Password: 61ccb4d78ce92a0c
+2025-03-11 22:49:49 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 22:49:49 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 22:49:49 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 22:49:49 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 22:49:49 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 22:49:50 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 22:49:50 [root] INFO: Collection already has 30 documents
+2025-03-11 22:49:50 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:49:50 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 22:49:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 22:49:50 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:49:50 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 22:49:58 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 22:49:59 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 22:50:35 [kp_news] WARNING: Found only 0 items with primary selectors. Trying secondary selectors.
+2025-03-11 22:50:35 [kp_news] INFO: Found 52 potential news items using combined strategy
+2025-03-11 22:50:50 [scrapy.extensions.logstats] INFO: Crawled 2 pages (at 2 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 22:50:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 86MiB
+2025-03-11 22:51:05 [kp_news] INFO: Extracted article 1: ЕС одобрил предложение о перемирии на Украине и возобновлении поставок США
+2025-03-11 22:51:05 [root] INFO: Stored article 31/1500
+2025-03-11 22:51:50 [scrapy.extensions.logstats] INFO: Crawled 3 pages (at 1 pages/min), scraped 1 items (at 1 items/min)
+2025-03-11 22:51:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 95MiB
+2025-03-11 22:52:26 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273034/", waiting until "load"
+============================================================
+2025-03-11 22:52:26 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273034/
+2025-03-11 22:52:50 [scrapy.extensions.logstats] INFO: Crawled 3 pages (at 0 pages/min), scraped 1 items (at 0 items/min)
+2025-03-11 22:52:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 106MiB
+2025-03-11 22:52:57 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273031/", waiting until "load"
+============================================================
+2025-03-11 22:52:57 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273031/
+2025-03-11 22:53:36 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273028/", waiting until "load"
+============================================================
+2025-03-11 22:53:36 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273028/
+2025-03-11 22:53:50 [scrapy.extensions.logstats] INFO: Crawled 3 pages (at 0 pages/min), scraped 1 items (at 0 items/min)
+2025-03-11 22:53:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 117MiB
+2025-03-11 22:54:06 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273022/", waiting until "load"
+============================================================
+2025-03-11 22:54:06 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273022/
+2025-03-11 22:54:45 [kp_news] INFO: Extracted article 2: США и Украина сформируют группы для обсуждения путей к устойчивому миру
+2025-03-11 22:54:45 [root] ERROR: Error saving to MongoDB: E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6273016/" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6273016/" }', 'keyPattern': {'source_url': 1}, 'keyValue': {'source_url': 'https://www.kp.ru/online/news/6273016/'}}
+2025-03-11 22:54:50 [scrapy.extensions.logstats] INFO: Crawled 4 pages (at 1 pages/min), scraped 2 items (at 1 items/min)
+2025-03-11 22:54:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 117MiB
+2025-03-11 22:55:25 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6273008/", waiting until "load"
+============================================================
+2025-03-11 22:55:25 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6273008/
+2025-03-11 22:55:50 [scrapy.extensions.logstats] INFO: Crawled 4 pages (at 0 pages/min), scraped 2 items (at 0 items/min)
+2025-03-11 22:55:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 131MiB
+2025-03-11 22:56:27 [kp_news] INFO: Extracted article 3: Белый дом считает, что переговоры США и Украины в Джидде были позитивными
+2025-03-11 22:56:27 [root] ERROR: Error saving to MongoDB: E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6273007/" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6273007/" }', 'keyPattern': {'source_url': 1}, 'keyValue': {'source_url': 'https://www.kp.ru/online/news/6273007/'}}
+2025-03-11 22:56:50 [scrapy.extensions.logstats] INFO: Crawled 5 pages (at 1 pages/min), scraped 3 items (at 1 items/min)
+2025-03-11 22:56:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 131MiB
+2025-03-11 22:57:50 [scrapy.extensions.logstats] INFO: Crawled 5 pages (at 0 pages/min), scraped 3 items (at 0 items/min)
+2025-03-11 22:57:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 147MiB
+2025-03-11 22:57:52 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6272955/", waiting until "load"
+============================================================
+2025-03-11 22:57:52 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6272955/
+2025-03-11 22:58:50 [scrapy.extensions.logstats] INFO: Crawled 5 pages (at 0 pages/min), scraped 3 items (at 0 items/min)
+2025-03-11 22:58:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 155MiB
+2025-03-11 22:59:10 [kp_news] INFO: Extracted article 4: Компания Nokia сообщила о неудачной попытке совершить звонок с Луны
+2025-03-11 22:59:10 [root] ERROR: Error saving to MongoDB: E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6272959/" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6272959/" }', 'keyPattern': {'source_url': 1}, 'keyValue': {'source_url': 'https://www.kp.ru/online/news/6272959/'}}
+2025-03-11 22:59:50 [scrapy.extensions.logstats] INFO: Crawled 6 pages (at 1 pages/min), scraped 4 items (at 1 items/min)
+2025-03-11 22:59:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 170MiB
+2025-03-11 22:59:54 [kp_news] ERROR: Request failed: Timeout 60000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6272964/", waiting until "load"
+============================================================
+2025-03-11 22:59:54 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6272964/
+2025-03-11 23:00:50 [scrapy.extensions.logstats] INFO: Crawled 6 pages (at 0 pages/min), scraped 4 items (at 0 items/min)
+2025-03-11 23:00:50 [scrapy.extensions.memusage] INFO: Peak memory usage is 178MiB
+2025-03-11 23:00:50 [kp_news] INFO: Extracted article 5: МИД обвинил в атаках ВСУ на Россию поддерживающие Киев страны
+2025-03-11 23:00:50 [root] ERROR: Error saving to MongoDB: E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6272967/" }, full error: {'index': 0, 'code': 11000, 'errmsg': 'E11000 duplicate key error collection: kp_news.articles index: source_url_1 dup key: { source_url: "https://www.kp.ru/online/news/6272967/" }', 'keyPattern': {'source_url': 1}, 'keyValue': {'source_url': 'https://www.kp.ru/online/news/6272967/'}}
+2025-03-11 23:01:19 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 23:01:19 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2025-03-11 23:01:19 [kp_news] ERROR: Request failed: Navigation failed because page was closed!
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/news/6272971/", waiting until "load"
+============================================================
+2025-03-11 23:01:19 [kp_news] ERROR: Failed URL: https://www.kp.ru/online/news/6272971/
+2025-03-11 23:01:20 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2025-03-11 23:05:14 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 23:05:14 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 23:05:14 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 8,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 1,
+ 'DOWNLOAD_TIMEOUT': 60,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 408, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 23:05:14 [scrapy.extensions.telnet] INFO: Telnet Password: 9cbccc21264acfc3
+2025-03-11 23:05:14 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 23:05:14 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 23:05:15 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 23:05:15 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 23:05:15 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 23:05:15 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 23:05:15 [root] INFO: Collection already has 31 documents
+2025-03-11 23:05:15 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 23:05:15 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 23:05:15 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 23:05:15 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 23:05:15 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 23:05:26 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 23:05:27 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 23:05:57 [scrapy.core.scraper] ERROR: Error downloading <GET https://www.kp.ru/online/>
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1694, in _inlineCallbacks
+    cast(Failure, result).throwExceptionIntoGenerator, gen
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/python/failure.py", line 518, in throwExceptionIntoGenerator
+    return g.throw(self.type, self.value, self.tb)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/core/downloader/middleware.py", line 54, in process_request
+    return (yield download_func(request=request, spider=spider))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1065, in adapt
+    extracted = result.result()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 311, in _download_request
+    result = await self._download_request_with_page(request, page, spider)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy_playwright/handler.py", line 346, in _download_request_with_page
+    response = await page.goto(url=request.url, **page_goto_kwargs)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/async_api/_generated.py", line 9242, in goto
+    url=url, timeout=timeout, waitUntil=wait_until, referer=referer
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_page.py", line 479, in goto
+    return await self._main_frame.goto(**locals_to_params(locals()))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_frame.py", line 147, in goto
+    await self._channel.send("goto", locals_to_params(locals()))
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 62, in send
+    lambda: self.inner_send(method, params, False)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 482, in wrap_api_call
+    return await cb()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/playwright/_impl/_connection.py", line 97, in inner_send
+    result = next(iter(done)).result()
+playwright._impl._api_types.TimeoutError: Timeout 30000ms exceeded.
+=========================== logs ===========================
+navigating to "https://www.kp.ru/online/", waiting until "load"
+============================================================
+2025-03-11 23:05:57 [scrapy.core.scraper] ERROR: Spider error processing <GET https://www.kp.ru/online/> (referer: https://www.kp.ru/online/)
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 893, in _runCallbacks
+    current.result, *args, **kwargs
+  File "/Users/andrey/Documents/webcrawling_final/kp_news_crawler/kp_news_crawler/spiders/kp_news.py", line 159, in errback_handler
+    if failure.check(scrapy.exceptions.TimeoutError):
+AttributeError: module 'scrapy.exceptions' has no attribute 'TimeoutError'
+2025-03-11 23:05:57 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 23:05:57 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/playwright._impl._api_types.TimeoutError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 42.626612,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 20, 5, 57, 863954),
+ 'log_count/ERROR': 2,
+ 'log_count/INFO': 17,
+ 'memusage/max': 69767168,
+ 'memusage/startup': 69767168,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 155,
+ 'playwright/request_count/method/GET': 103,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 51,
+ 'playwright/request_count/navigation': 2,
+ 'playwright/request_count/resource_type/document': 2,
+ 'playwright/request_count/resource_type/fetch': 20,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 41,
+ 'playwright/request_count/resource_type/ping': 15,
+ 'playwright/request_count/resource_type/script': 37,
+ 'playwright/request_count/resource_type/xhr': 35,
+ 'playwright/response_count': 125,
+ 'playwright/response_count/method/GET': 100,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 24,
+ 'playwright/response_count/resource_type/document': 2,
+ 'playwright/response_count/resource_type/fetch': 20,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 39,
+ 'playwright/response_count/resource_type/ping': 12,
+ 'playwright/response_count/resource_type/script': 37,
+ 'playwright/response_count/resource_type/xhr': 10,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'spider_exceptions/AttributeError': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 20, 5, 15, 237342)}
+2025-03-11 23:05:57 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 23:05:57 [scrapy-playwright] INFO: Closing download handler
+2025-03-11 23:09:29 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2025-03-11 23:09:43 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 23:09:43 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 23:09:43 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 4,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 60,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 400, 408, 410, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 23:09:43 [scrapy.extensions.telnet] INFO: Telnet Password: a2688ec14223398d
+2025-03-11 23:09:43 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 23:09:44 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 23:09:44 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 23:09:44 [twisted] CRITICAL: Unhandled error in Deferred:
+2025-03-11 23:09:44 [twisted] CRITICAL: 
+Traceback (most recent call last):
+  File "/Applications/anaconda3/lib/python3.7/site-packages/twisted/internet/defer.py", line 1697, in _inlineCallbacks
+    result = context.run(gen.send, result)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/crawler.py", line 129, in crawl
+    self.engine = self._create_engine()
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/crawler.py", line 143, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/core/engine.py", line 101, in __init__
+    self.scraper = Scraper(crawler)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/core/scraper.py", line 109, in __init__
+    self.itemproc: ItemPipelineManager = itemproc_cls.from_crawler(crawler)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/middleware.py", line 68, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/middleware.py", line 43, in from_settings
+    mwcls = load_object(clspath)
+  File "/Applications/anaconda3/lib/python3.7/site-packages/scrapy/utils/misc.py", line 65, in load_object
+    mod = import_module(module)
+  File "/Applications/anaconda3/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 724, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 860, in get_code
+  File "<frozen importlib._bootstrap_external>", line 791, in source_to_code
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/andrey/Documents/webcrawling_final/kp_news_crawler/kp_news_crawler/pipelines.py", line 36
+    try:
+      ^
+IndentationError: expected an indented block
+2025-03-11 23:11:25 [scrapy.utils.log] INFO: Scrapy 2.9.0 started (bot: kp_news_crawler)
+2025-03-11 23:11:25 [scrapy.utils.log] INFO: Versions: lxml 4.5.0.0, libxml2 2.9.9, cssselect 1.2.0, parsel 1.8.1, w3lib 2.1.2, Twisted 22.10.0, Python 3.7.6 (default, Jan  8 2020, 13:42:34) - [Clang 4.0.1 (tags/RELEASE_401/final)], pyOpenSSL 25.0.0 (OpenSSL 3.4.1 11 Feb 2025), cryptography 44.0.2, Platform Darwin-22.6.0-x86_64-i386-64bit
+2025-03-11 23:11:25 [scrapy.crawler] INFO: Overridden settings:
+{'AUTOTHROTTLE_ENABLED': True,
+ 'BOT_NAME': 'kp_news_crawler',
+ 'CONCURRENT_REQUESTS': 4,
+ 'COOKIES_ENABLED': False,
+ 'DOWNLOAD_DELAY': 2,
+ 'DOWNLOAD_TIMEOUT': 60,
+ 'FEED_EXPORT_ENCODING': 'utf-8',
+ 'LOG_FILE': 'kp_news_crawler.log',
+ 'LOG_LEVEL': 'INFO',
+ 'MEMUSAGE_LIMIT_MB': 2048,
+ 'MEMUSAGE_WARNING_MB': 1024,
+ 'NEWSPIDER_MODULE': 'kp_news_crawler.spiders',
+ 'REQUEST_FINGERPRINTER_IMPLEMENTATION': '2.7',
+ 'RETRY_HTTP_CODES': [500, 502, 503, 504, 400, 408, 410, 429],
+ 'RETRY_TIMES': 3,
+ 'ROBOTSTXT_OBEY': True,
+ 'SPIDER_MODULES': ['kp_news_crawler.spiders'],
+ 'TWISTED_REACTOR': 'twisted.internet.asyncioreactor.AsyncioSelectorReactor',
+ 'USER_AGENT': 'KP News Crawler (+your-contact-email@example.com)'}
+2025-03-11 23:11:25 [scrapy.extensions.telnet] INFO: Telnet Password: a4c9580e2bb5c7b6
+2025-03-11 23:11:25 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.throttle.AutoThrottle']
+2025-03-11 23:11:25 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2025-03-11 23:11:25 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2025-03-11 23:11:25 [scrapy.middleware] INFO: Enabled item pipelines:
+['kp_news_crawler.pipelines.MongoDBPipeline']
+2025-03-11 23:11:25 [scrapy.core.engine] INFO: Spider opened
+2025-03-11 23:11:25 [root] INFO: Connected to MongoDB kp_news.articles
+2025-03-11 23:11:25 [root] INFO: Collection already has 31 documents
+2025-03-11 23:11:25 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 23:11:25 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2025-03-11 23:11:25 [scrapy.extensions.memusage] INFO: Peak memory usage is 66MiB
+2025-03-11 23:11:25 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 23:11:25 [scrapy-playwright] INFO: Starting download handler
+2025-03-11 23:11:37 [scrapy-playwright] INFO: Launching browser chromium
+2025-03-11 23:11:37 [scrapy-playwright] INFO: Browser chromium launched
+2025-03-11 23:12:25 [scrapy.extensions.logstats] INFO: Crawled 1 pages (at 1 pages/min), scraped 0 items (at 0 items/min)
+2025-03-11 23:12:25 [scrapy.extensions.memusage] INFO: Peak memory usage is 75MiB
+2025-03-11 23:12:38 [kp_news] WARNING: PlaywrightTimeoutError on https://www.kp.ru/online/
+2025-03-11 23:12:38 [scrapy.core.engine] INFO: Closing spider (finished)
+2025-03-11 23:12:38 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/exception_count': 1,
+ 'downloader/exception_type_count/playwright._impl._api_types.TimeoutError': 1,
+ 'downloader/request_bytes': 465,
+ 'downloader/request_count': 2,
+ 'downloader/request_method_count/GET': 2,
+ 'downloader/response_bytes': 1083,
+ 'downloader/response_count': 1,
+ 'downloader/response_status_count/200': 1,
+ 'elapsed_time_seconds': 72.591536,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2025, 3, 11, 20, 12, 38, 492644),
+ 'log_count/INFO': 19,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 79642624,
+ 'memusage/startup': 69754880,
+ 'playwright/context_count': 1,
+ 'playwright/context_count/max_concurrent': 1,
+ 'playwright/context_count/non_persistent': 1,
+ 'playwright/page_count': 1,
+ 'playwright/page_count/max_concurrent': 1,
+ 'playwright/request_count': 154,
+ 'playwright/request_count/method/GET': 100,
+ 'playwright/request_count/method/HEAD': 1,
+ 'playwright/request_count/method/POST': 53,
+ 'playwright/request_count/navigation': 2,
+ 'playwright/request_count/resource_type/document': 2,
+ 'playwright/request_count/resource_type/fetch': 22,
+ 'playwright/request_count/resource_type/font': 5,
+ 'playwright/request_count/resource_type/image': 38,
+ 'playwright/request_count/resource_type/ping': 17,
+ 'playwright/request_count/resource_type/script': 35,
+ 'playwright/request_count/resource_type/xhr': 35,
+ 'playwright/response_count': 132,
+ 'playwright/response_count/method/GET': 99,
+ 'playwright/response_count/method/HEAD': 1,
+ 'playwright/response_count/method/POST': 32,
+ 'playwright/response_count/resource_type/document': 2,
+ 'playwright/response_count/resource_type/fetch': 22,
+ 'playwright/response_count/resource_type/font': 5,
+ 'playwright/response_count/resource_type/image': 38,
+ 'playwright/response_count/resource_type/ping': 15,
+ 'playwright/response_count/resource_type/script': 34,
+ 'playwright/response_count/resource_type/xhr': 16,
+ 'response_received_count': 1,
+ 'robotstxt/request_count': 1,
+ 'robotstxt/response_count': 1,
+ 'robotstxt/response_status_count/200': 1,
+ 'scheduler/dequeued': 1,
+ 'scheduler/dequeued/memory': 1,
+ 'scheduler/enqueued': 1,
+ 'scheduler/enqueued/memory': 1,
+ 'start_time': datetime.datetime(2025, 3, 11, 20, 11, 25, 901108)}
+2025-03-11 23:12:38 [scrapy.core.engine] INFO: Spider closed (finished)
+2025-03-11 23:12:38 [scrapy-playwright] INFO: Closing download handler
